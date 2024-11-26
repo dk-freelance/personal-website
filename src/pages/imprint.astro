@@ -1,0 +1,66 @@
+---
+import Contactform from "@components/contactform.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Imprint">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Imprint</Fragment>
+    </Sectionhead>
+
+    <div>
+      <h2 class="font-medium text-2xl text-gray-800">
+        Angaben gemäß § 5 TMG / Information according to § 5 TMG
+      </h2>
+      <h3 class="font-medium text-xl text-gray-800 mt-8">
+        Name des Verantwortlichen / Responsible Person
+      </h3>
+      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+        David Knichel<br />
+        Waldstr. 57 <br />
+        45525 Hattingen <br />
+      </p>
+      <h3 class="font-medium text-xl text-gray-800 mt-8">Kontakt / Contact</h3>
+      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+        Mail: david.knichel@mail.de
+      </p>
+      <h2 class="font-medium text-2xl text-gray-800 mt-8">
+        Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV / Responsible for
+        Content according to § 55 Abs. 2 RStV
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+        David Knichel<br />
+        Waldstr. 57 <br />
+        45525 Hattingen <br />
+      </p>
+      <h2 class="font-medium text-2xl text-gray-800 mt-8">
+        Haftungsausschluss (Disclaimer)
+      </h2>
+      <h3 class="font-medium text-xl text-gray-800 mt-8">
+        Haftung für Inhalte / Liability for Content
+      </h3>
+      <p class="text-lg leading-relaxed text-slate-500 mt-3">
+        Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf
+        diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8
+        bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
+        übermittelte oder gespeicherte fremde Informationen zu überwachen oder
+        nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
+        hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
+        Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.<br
+        /><br />
+        As a service provider, we are responsible for our own content on these pages
+        in accordance with general laws pursuant to § 7 (1) TMG. However, according
+        to §§ 8 to 10 TMG, we are not obliged to monitor transmitted or stored third-party
+        information or to investigate circumstances that indicate illegal activity.
+        Obligations to remove or block the use of information according to general
+        laws remain unaffected. However, liability in this regard is only possible
+        from the time of knowledge of a specific infringement. Upon becoming aware
+        of such violations, we will remove the content immediately.
+      </p>
+    </div>
+  </Container>;
+</Layout>

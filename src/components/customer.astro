@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+
+const customers = [
+  {
+    company: "edgeless",
+    link: "https://www.edgeless.systems/",
+    description:
+      "Edgeless Systems is a cybersecurity company that makes the public cloud the safest place for sensitive data. With world-leading open-source solutions for confidential computing, Edgeless Systems takes security to an unprecedented level.",
+    testimonial: "",
+  },
+  {
+    company: "radix",
+    link: "https://radix-security.com/",
+    description:
+      "Radix Security develops solutions for secure mobile networks. With products such as automatic security evaluation, the team targets certifying test centers, component manufacturers, and commercial network operators and addresses the complex requirements of different phases of the network lifecycle",
+    testimonial: "",
+  },
+];
+---
+
+<>
+  <a id="customers"></a>
+  <div class="mt-16 md:mt-16">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      Trusted by industry-leading innovators.
+    </h2>
+    <div class="mt-12">
+      {
+        customers.map((item) => (
+          <div class="grid lg:grid-cols-2 place-items-center pt-2 pb-2 md:pt-2 md:pb-2">
+            <div class="py-2 md:order-0 md:block">
+              <a href={item.link}>
+                <Icon class="size-48 md:size-48" name={item.company} />
+              </a>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">{item.testimonial}</h3>
+              <h3 class="text-lg mt-4 text-slate-600">{item.description}</h3>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</>
