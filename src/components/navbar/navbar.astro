@@ -3,21 +3,18 @@ import Container from "@components/container.astro";
 import Link from "@components/ui/link.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { undefined } from "astro:schema";
 
 const menuitems = [
   {
     title: "About",
+    children: false,
     path: "/#about",
-    children: [],
     badge: "",
   },
   {
     title: "Customers",
     path: "/#customers",
-  },
-  {
-    title: "Contact",
-    path: "/#contact",
   },
 ];
 ---
@@ -27,8 +24,8 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">David</span><span
-            class="text-slate-500">Knichel</span
+          ><span class="font-bold text-slate-800">Untangling</span><span
+            class="text-slate-500">Tech</span
           >
         </a>
         <div class="block lg:hidden">
