@@ -3,42 +3,13 @@ import { Picture } from "astro:assets";
 import Sectionhead from "@components/sectionhead.astro";
 import meImage from "assets/avatar.jpg";
 import { Icon } from "astro-icon/components";
+import CVTimeline from "@components/cv.astro";
 ---
 
 <>
-  <a id="about"></a>
+  <a id="about" href="#about" aria-label="about me"></a>
   <div class="mt-16 md:mt-16">
-    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-      This is me.
-    </h2>
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">About</h2>
   </div>
-
-  <div
-    class="grid mt-12 lg:grid-cols-2 place-items-center pt-2 pb-2 md:pt-2 md:pb-2">
-    <div class="aspect-square">
-      <Picture
-        src={meImage}
-        alt="Hello"
-        width={256}
-        height={256}
-        class="rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
-      />
-    </div>
-    <div class="flex flex-col mt-8">
-      <p class="text-lg text-slate-600">
-        Hi there, I’m David. I hold a PhD in applied cryptography and hardware
-        security. At heart, I’m a deeply technical engineer who’s passionate
-        about tackling marketing challenges. Curious about my background? Feel
-        free to explore more on my LinkedIn.
-      </p>
-    </div>
-  </div>
-  <div class="wfull flex justify-center mt-16 gap-6">
-    <a href="https://www.linkedin.com/in/david-knichel-8a53941b3/">
-      <Icon class="size-8 md:size-12" name="simple-icons:linkedin" />
-    </a>
-    <a href="mailto:david@untangling-tech.com">
-      <Icon class="size-8 md:size-12" name="simple-icons:maildotru" />
-    </a>
-  </div>
+  <CVTimeline />
 </>

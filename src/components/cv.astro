@@ -1,0 +1,198 @@
+---
+import { Picture } from "astro:assets";
+import meImage from "../assets/avatar.jpg";
+import { Icon } from "astro-icon/components";
+
+const entries = [
+  {
+    year: "2024–Now",
+    title: "Freelancer Product Marketing & Growth for Tech Startups",
+    place: "",
+    description: "",
+  },
+  {
+    year: "2024",
+    title: "Enterprise Security Architect",
+    place: "Cymotive GmbH",
+    description:
+      "Automotive industry: Helped OEMs and Tier 1 suppliers with secure architecture design and risk analysis.",
+  },
+  {
+    year: "2019–2023",
+    title: "PhD Applied Cryptography & Hardware Security",
+    place: "Ruhr University Bochum",
+    description:
+      "Title of thesis: Formal Verification and Automated Masking of Cryptographic Hardware",
+  },
+  {
+    year: "2023",
+    title: "1st Place German IT Security Award 2023",
+    place: "",
+    description:
+      "The Horst Görtz Foundation honors the most innovative cybersecurity solution in Germany. Endowed with 100,000€.",
+  },
+];
+---
+
+<style>
+  .cv-wrapper {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 1rem;
+  }
+
+  .cv-photo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .cv-photo :global(picture) {
+    width: 128px;
+    height: 128px;
+  }
+
+  .cv-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0rem;
+  }
+
+  .cv-timeline {
+    position: relative;
+    padding: 0 1rem;
+  }
+
+  .cv-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+    transform: translateX(-50%);
+  }
+
+  .cv-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .cv-entry-content {
+    width: 40%;
+    max-width: 400px;
+  }
+
+  .cv-entry.left .cv-entry-content {
+    text-align: right;
+  }
+
+  .cv-entry.right .cv-entry-content {
+    text-align: left;
+  }
+
+  .cv-connector {
+  }
+
+  .cv-year {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.2rem;
+  }
+
+  .cv-title-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #212529;
+  }
+
+  .cv-description {
+    margin-top: 0.3rem;
+    color: #495057;
+  }
+
+  @media (max-width: 768px) {
+    .cv-entry {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 0.5rem;
+    }
+
+    .cv-entry-content {
+      width: 100%;
+      text-align: left !important;
+    }
+
+    .cv-connector {
+      display: none;
+    }
+
+    .cv-line {
+    }
+  }
+</style>
+
+<div class="cv-wrapper">
+  <div class="cv-photo">
+    <Picture
+      src={meImage}
+      alt="Portrait"
+      widths={[128, 256, 384]}
+      sizes="128px"
+      class="rounded-full transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
+      format="webp"
+    />
+  </div>
+
+  <div class="wfull flex justify-center mt-2 mb-8 gap-2">
+    <h2 class="cv-title">David Knichel</h2>
+    <a
+      href="https://www.linkedin.com/in/david-knichel-8a53941b3/"
+      class="flex items-center"
+      aria-label="Connect with me on LinkedIn">
+      <Icon class="size-8 md:size-8" name="simple-icons:linkedin" />
+    </a>
+  </div>
+
+  <div class="cv-timeline">
+    <div class="cv-line"></div>
+    {
+      entries.map((entry, idx) => {
+        const isLeft = idx % 2 === 0;
+        return (
+          <div class={`cv-entry ${isLeft ? "left" : "right"}`}>
+            {isLeft ? (
+              <>
+                <div class="cv-entry-content">
+                  <div class="cv-year">{entry.year}</div>
+                  <div class="cv-title-text">
+                    {entry.title}
+                    {entry.place ? ` @ ${entry.place}` : ""}
+                  </div>
+                  <div class="cv-description">{entry.description}</div>
+                </div>
+                <div class="cv-connector" />
+              </>
+            ) : (
+              <>
+                <div class="cv-connector" />
+                <div class="cv-entry-content">
+                  <div class="cv-year">{entry.year}</div>
+                  <div class="cv-title-text">
+                    {entry.title}
+                    {entry.place ? ` @ ${entry.place}` : ""}
+                  </div>
+                  <div class="cv-description">{entry.description}</div>
+                </div>
+              </>
+            )}
+          </div>
+        );
+      })
+    }
+  </div>
+</div>
